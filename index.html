@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="main-container">
+      <header class="header-container">
+        <div class="header-left">
+          <h1 class="title-text">Recipe Book 🍳</h1>
+          <p class="save-text"></p>
+        </div>
+
+        <button id="add-recipe-btn">+ Add Recipe</button>
+      </header>
+
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input
+          type="search"
+          placeholder="Search recipes..."
+          id="search-input"
+        />
+      </div>
+
+      <div class="filter-container">
+        <button class="filter-button">All</button>
+        <button class="filter-button">Breakfast</button>
+        <button class="filter-button">Lunch</button>
+        <button class="filter-button">Dinner</button>
+        <button class="filter-button">Dessert</button>
+      </div>
+
+      <div class="recipes-container">
+        <h2 class="recipes-text">RECIPES</h2>
+        <div class="cards-container"></div>
+      </div>
+
+      <div id="modal-overlay">
+        <div class="modal">
+          <div class="modal-header">
+            <h2>Add Recipe</h2>
+            <button id="close-btn">✕</button>
+          </div>
+
+          <div class="modal-body">
+            <div class="recipe-category-wrapper">
+              <div class="wrapper">
+                <label>RECIPE NAME</label>
+                <input
+                  type="text"
+                  placeholder="Add Recipe Name!"
+                  id="recipe-name-text"
+                />
+              </div>
+
+              <div class="wrapper">
+                <label>CATEGORY</label>
+                <select id="recipe-category-text">
+                  <option>Breakfast</option>
+                  <option>Lunch</option>
+                  <option>Dinner</option>
+                  <option>Dessert</option>
+                  <option>Drinks</option>
+                </select>
+              </div>
+
+              <div class="wrapper">
+                <label>Cooking Time</label>
+                <input type="number" id="recipe-time-text" />
+              </div>
+            </div>
+
+            <div class="wrapper">
+              <label>INGREDIENTS</label>
+              <input
+                type="text"
+                placeholder="Add Ingredients!"
+                id="recipe-ingredients-text"
+              />
+            </div>
+
+            <div class="wrapper">
+              <label>INSTRUCTIONS</label>
+              <textarea
+                placeholder="Step by step instructions"
+                id="recipe-instructions-text"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button id="cancel-btn">Cancel</button>
+            <button id="save-recipe-btn">Save Recipe</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-modal-overlay" id="detail-modal-overlay">
+        <div class="detail-modal">
+          <button id="close-detail-btn">✕</button>
+          <h1 id="detail-emoji"></h1>
+          <h2 id="detail-name"></h2>
+          <p id="detail-category"></p>
+          <p id="detail-time"></p>
+          <p id="detail-ingredients"></p>
+          <p id="detail-instructions"></p>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
