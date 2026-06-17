@@ -6,15 +6,15 @@ let recipes = [
     ingredients: ["Flour", "Egg", "Milk", "Butter"],
     cookingTime: 20,
     instructions: [
-      "1. Place 1 cup of flour in a mixing bowl.",
-      "2. Add 1 egg, 3/4 cup of milk, and 2 tablespoons of melted butter to the flour.",
-      "3. Mix the ingredients until a smooth batter is formed.",
-      "4. Heat a pan over medium heat and lightly grease it with butter.",
-      "5. Pour an appropriate amount of batter into the pan to form a pancake.",
-      "6. Cook the pancake until bubbles appear on the surface, then flip it over.",
-      "7. Cook the other side until it turns golden brown.",
-      "8. Repeat the process until all the batter has been used.",
-      "9. Serve the pancakes while warm",
+      "Place 1 cup of flour in a mixing bowl.",
+      "Add 1 egg, 3/4 cup of milk, and 2 tablespoons of melted butter to the flour.",
+      "Mix the ingredients until a smooth batter is formed.",
+      "Heat a pan over medium heat and lightly grease it with butter.",
+      "Pour an appropriate amount of batter into the pan to form a pancake.",
+      "Cook the pancake until bubbles appear on the surface, then flip it over.",
+      "Cook the other side until it turns golden brown.",
+      "Repeat the process until all the batter has been used.",
+      "Serve the pancakes while warm",
     ],
   },
 ];
@@ -73,7 +73,7 @@ function renderRecipes(list) {
       recipeName.value = match.name;
       recipeCategory.value = match.category;
       recipeTime.value = match.cookingTime;
-      recipeIngredients.value = match.ingredients.join("\n");
+      recipeIngredients.value = match.ingredients.join(", ");
       recipeInstructions.value = match.instructions.join("\n");
 
       editingId = match.id;
@@ -116,7 +116,7 @@ function renderRecipes(list) {
       detailName.textContent = match.name.charAt(0).toUpperCase() + match.name.slice(1);
       detailCategory.textContent = match.category;
       detailTime.textContent = match.cookingTime;
-      detailIngredients.textContent = match.ingredients.join(", ");
+      detailIngredients.innerHTML = `<ul>${match.ingredients.map((ingre) => `<li>${ingre}</li>`).join("")}</ul>`;
       detailInstructions.innerHTML = `<ol>${match.instructions.map((step) => `<li>${step}</li>`).join("")}</ol>`;
       cardOverlay.style.display = "flex";
     });
@@ -184,14 +184,14 @@ saveBtn.addEventListener("click", () => {
     recipeToEdit.name = name;
     recipeToEdit.category = category;
     recipeToEdit.cookingTime = time;
-    recipeToEdit.ingredients = ingredients.split("\n");
+    recipeToEdit.ingredients = ingredients.split(", ");
     recipeToEdit.instructions = instructions.split("\n");
   } else {
     const newRecipe = {
       id: Date.now(),
       name: name,
       category: category,
-      ingredients: ingredients.split("\n"),
+      ingredients: ingredients.split(", "),
       cookingTime: time,
       instructions: instructions.split("\n"),
     };
